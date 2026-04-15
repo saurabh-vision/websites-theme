@@ -1,0 +1,19 @@
+{% comment %}
+  Total Gravatar Removal Override
+  This file replaces the default Chirpy avatar logic to force local image use only.
+{% endcomment %}
+
+<a href="{{ '/' | relative_url }}" id="avatar" class="rounded-circle">
+  {% if site.avatar %}
+    {% capture avatar_url %}
+      {% if site.avatar contains '://' %}
+        {{ site.avatar }}
+      {% else %}
+        {{ site.avatar | relative_url }}
+      {% endif %}
+    {% endcapture %}
+    <img src="{{ avatar_url | strip }}" width="112" height="112" alt="avatar" onerror="this.style.display='none'">
+  {% else %}
+    <i class="fas fa-user-circle fa-7x"></i>
+  {% endif %}
+</a>
