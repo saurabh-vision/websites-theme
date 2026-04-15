@@ -1,0 +1,13 @@
+- name: SaaS Pricing Audit
+  slug: saas-pricing-audit
+  description: "Instantly checks your SaaS pricing page for fail patterns."
+  tags: [SaaS, Pricing, Checker]
+  featured: true
+  icon: "⚡"
+  
+- name: Email Splitter
+  slug: email-splitter
+  description: "Splits long emails into actionable sentences for founders."
+  tags: [Productivity, Mail]
+  featured: false
+  icon: "✉️"
