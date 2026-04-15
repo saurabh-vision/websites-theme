@@ -35,8 +35,8 @@ The "Origin" tab is located at `_tabs/origin.md`. Edit this file to share your f
 This section is fully automated and designed for speed.
 - **Save Tool**: Save your standalone HTML/JS tool file into the `/tools/` directory (e.g., `my-new-tool.html`).
 - **Register**: Add an entry to `_data/tools.yml`.
-  - **Required fields**: `name`, `slug`, `description`, `tags` (array), `featured` (boolean), `icon`.
-- **Display**: The Tools Library page will automatically detect the new file and render a styled card for it.
+  - **Required fields**: `name`, `slug`, `description`, `category`, `tags` (array), `features` (array), `minutes`, `badge`, `url`.
+- **Display**: The Tools Library page will automatically render a premium card with feature lists and category tags.
 
 ### 4. How to add a new Post
 To keep the site organized, posts are categorized by folder within `_posts/`.
@@ -48,6 +48,12 @@ To keep the site organized, posts are categorized by folder within `_posts/`.
 - **Naming**: Use the strict Jekyll convention: `YYYY-MM-DD-title.md`. 
   - *Example*: `2026-05-01-saas-pricing-failure.md`
 - **Categorization**: Ensure the `categories` field in your front matter matches the section (e.g., `categories: [Case Studies]`).
+
+### 5. Automated Content Listing
+The site uses automated loops to keep the Home page and Sidebar Tabs fresh.
+- **Home Page**: The "Latest Audit & Build Updates" section shows the 5 most recent posts from all categories combined.
+- **Section Tabs**: Each sidebar tab (e.g., Case Studies) automatically filters and lists posts that are stored in its corresponding `_posts/` subfolder.
+- **Workflow**: Just drop a new file in the correct folder with the correct naming, and it will appear everywhere automatically!
 
 ## Pre-flight Check
 Before deploying, run the local test script to check for broken links:

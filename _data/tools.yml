@@ -1,13 +1,43 @@
+- name: ROI Calculator
+  slug: roi-calculator
+  description: "Calculate your SaaS ROI with India-specific metrics. Track CAC, LTV, payback period, and more with pre-built formulas."
+  category: Finance
+  tags: [Finance, Popular]
+  features: ["LTV/CAC Ratio", "Payback Period", "Churn Analysis", "Export Reports"]
+  icon: "📈"
+  minutes: 5
+  badge: "Popular"
+  url: /tools/roi-calculator.html
+
+- name: Friction Mapper
+  slug: friction-mapper
+  description: "Map user friction points across your funnel. Identify where customers drop off and why—with actionable recommendations."
+  category: Product
+  tags: [Product, New]
+  features: ["Visual Funnel Map", "Heat Maps", "Drop-off Analysis", "Smart Suggestions"]
+  icon: "⚡"
+  minutes: 10
+  badge: "New"
+  url: /tools/friction-mapper.html
+
 - name: SaaS Pricing Audit
   slug: saas-pricing-audit
-  description: "Instantly checks your SaaS pricing page for fail patterns."
-  tags: [SaaS, Pricing, Checker]
-  featured: true
-  icon: "⚡"
-  
+  description: "Instantly checks your SaaS pricing page for fail patterns and psychological pricing errors."
+  category: Strategy
+  tags: [SaaS, Pricing]
+  features: ["Price Anchor Check", "Tiered Structure", "Add-on Strategy", "Currency Audit"]
+  icon: "💰"
+  minutes: 3
+  badge: "New"
+  url: /tools/saas-pricing-audit.html
+
 - name: Email Splitter
   slug: email-splitter
-  description: "Splits long emails into actionable sentences for founders."
+  description: "Splits long emails into actionable sentences for founders. Keep your outreach concise and conversion-focused."
+  category: Productivity
   tags: [Productivity, Mail]
-  featured: false
+  features: ["Action Item Extract", "Clarity Check", "Spam Word Filter", "Copy to Clipboard"]
   icon: "✉️"
+  minutes: 2
+  badge: ""
+  url: /tools/email-splitter.html

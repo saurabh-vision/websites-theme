@@ -2,3 +2,12 @@
 layout: home
 # Index page
 ---
+
+## 🚀 Latest Audit & Build Updates
+
+{% for post in site.posts limit:5 %}
+- [{{ post.title }}]({{ post.url | relative_url }}) ({{ post.date | date: "%b %d, %Y" }})  
+  <small>{{ post.categories | join: ', ' }}</small>
+{% endfor %}
+
+<hr>
