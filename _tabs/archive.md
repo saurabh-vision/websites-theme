@@ -1,5 +1,5 @@
 ---
-layout: tab
+layout: page
 title: "Archive"
 order: 7
 icon: fas fa-archive

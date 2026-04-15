@@ -1,5 +1,5 @@
 ---
-layout: tab
+layout: page
 title: "Origin"
 order: 1
 icon: fas fa-bullseye

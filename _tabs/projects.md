@@ -1,5 +1,5 @@
 ---
-layout: tab
+layout: page
 title: "Projects Portfolio"
 order: 5
 icon: fas fa-folder-open

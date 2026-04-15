@@ -1,5 +1,5 @@
 ---
-layout: tab
+layout: page
 title: "Case Studies"
 order: 2
 icon: fas fa-file-contract

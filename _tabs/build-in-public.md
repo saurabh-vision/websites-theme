@@ -1,5 +1,5 @@
 ---
-layout: tab
+layout: page
 title: "Build in Public"
 order: 3
 icon: fas fa-rocket

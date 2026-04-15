@@ -1,5 +1,5 @@
 ---
-layout: tab
+layout: page
 title: "Tools Library"
 order: 6
 icon: fas fa-tools
@@ -83,7 +83,7 @@ icon: fas fa-tools
   <div class="tool-card{% if tool.featured %} featured{% endif %}">
     <div>
       <h3>
-        <a href="/tools/{{ tool.slug }}.html">{{ tool.icon }} {{ tool.name }}</a>
+        <a href="{{ '/tools/' | append: tool.slug | append: '.html' | relative_url }}">{{ tool.icon }} {{ tool.name }}</a>
         {% if tool.featured %}<span class="tool-featured">Featured</span>{% endif %}
       </h3>
       <div class="tool-desc">{{ tool.description }}</div>

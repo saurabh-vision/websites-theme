@@ -1,5 +1,5 @@
 ---
-layout: tab
+layout: page
 title: "Brutal AI Reviews"
 order: 4
 icon: fas fa-robot
