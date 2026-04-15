@@ -49,6 +49,12 @@ To keep the site organized, posts are categorized by folder within `_posts/`.
   - *Example*: `2026-05-01-saas-pricing-failure.md`
 - **Categorization**: Ensure the `categories` field in your front matter matches the section (e.g., `categories: [Case Studies]`).
 
+### 5. Automated Content Listing
+The site uses automated loops to keep the Home page and Sidebar Tabs fresh.
+- **Home Page**: The "Latest Audit & Build Updates" section shows the 5 most recent posts from all categories combined.
+- **Section Tabs**: Each sidebar tab (e.g., Case Studies) automatically filters and lists posts that are stored in its corresponding `_posts/` subfolder.
+- **Workflow**: Just drop a new file in the correct folder with the correct naming, and it will appear everywhere automatically!
+
 ## Pre-flight Check
 Before deploying, run the local test script to check for broken links:
 ```shell
