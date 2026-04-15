@@ -5,94 +5,86 @@ order: 6
 icon: fas fa-tools
 ---
 
-## 🛠 Tools Library
+<link rel="stylesheet" href="{{ '/assets/css/design-system.css' | relative_url }}">
 
-<style>
-  .tool-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
-  .tool-card {
-    border: 1px solid var(--main-border-color);
-    border-radius: 12px;
-    padding: 1.5rem;
-    background: var(--card-bg);
-    transition: transform 0.2s, box-shadow 0.2s;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .tool-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    border-color: var(--link-color);
-  }
-  .tool-card.featured {
-    border: 2px solid var(--link-color);
-  }
-  .tool-card h3 {
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-    font-size: 1.25rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  .tool-card a {
-    color: inherit;
-    text-decoration: none;
-  }
-  .tool-card a:hover {
-    color: var(--link-color);
-  }
-  .tool-featured {
-    font-size: 0.7rem;
-    background: var(--link-color);
-    color: white;
-    padding: 2px 8px;
-    border-radius: 20px;
-    text-transform: uppercase;
-    font-weight: bold;
-    margin-left: auto;
-  }
-  .tool-desc {
-    font-size: 0.9rem;
-    color: var(--text-muted-color);
-    margin-bottom: 1rem;
-    line-height: 1.4;
-  }
-  .tool-tags {
-    font-size: 0.8rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-  .tool-tag {
-    background: var(--nav-cursor-color);
-    padding: 2px 10px;
-    border-radius: 4px;
-    color: var(--text-color);
-  }
-</style>
-
-<div class="tool-grid">
-{% for tool in site.data.tools %}
-  <div class="tool-card{% if tool.featured %} featured{% endif %}">
-    <div>
-      <h3>
-        <a href="{{ '/tools/' | append: tool.slug | append: '.html' | relative_url }}">{{ tool.icon }} {{ tool.name }}</a>
-        {% if tool.featured %}<span class="tool-featured">Featured</span>{% endif %}
-      </h3>
-      <div class="tool-desc">{{ tool.description }}</div>
-    </div>
-    <div class="tool-tags">
-      {% for tag in tool.tags %}
-        <span class="tool-tag">{{ tag }}</span>
-      {% endfor %}
-    </div>
+<div class="tools-header">
+  <h1>Tools Built for India's Friction</h1>
+  <p>Free calculators, templates, and frameworks designed specifically for Indian SaaS founders. No fluff, just tools that work.</p>
+  <div class="header-badges">
+    <div class="header-badge"><i class="fas fa-lock-open"></i> Open Source</div>
+    <div class="header-badge"><i class="fas fa-user-shield"></i> No Auth Required</div>
+    <div class="header-badge"><i class="fas fa-bolt"></i> Instant Result</div>
   </div>
+</div>
+
+<div class="filter-container">
+  <div class="filter-bar" id="filter-bar">
+    <button class="filter-btn active" data-filter="all">All Tools</button>
+    <button class="filter-btn" data-filter="Finance">Finance</button>
+    <button class="filter-btn" data-filter="Product">Product</button>
+    <button class="filter-btn" data-filter="Strategy">Strategy</button>
+    <button class="filter-btn" data-filter="Productivity">Productivity</button>
+  </div>
+</div>
+
+<div class="audit-grid">
+{% for tool in site.data.tools %}
+  {% include card-item.html title=tool.name url=tool.url description=tool.description category=tool.category icon=tool.icon tags=tool.tags badge=tool.badge minutes=tool.minutes %}
 {% endfor %}
 </div>
+
+<style>
+  /* Page-specific overrides for Filter Bar */
+  .filter-bar {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    padding-bottom: 0.75rem;
+    scrollbar-width: none;
+    margin-bottom: 2rem;
+  }
+  .filter-btn {
+    padding: 0.6rem 1.4rem;
+    border-radius: 50px;
+    background: var(--audit-card-bg);
+    border: 1px solid var(--audit-border);
+    color: var(--audit-text-main);
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+  }
+  .filter-btn.active {
+    background: var(--audit-accent);
+    color: white;
+    border-color: var(--audit-accent);
+  }
+  .tool-card.hidden { display: none; }
+  
+  /* Filtering Logic */
+  .audit-card.hidden { display: none; }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const toolCards = document.querySelectorAll('.audit-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+
+        toolCards.forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>
