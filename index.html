@@ -3,6 +3,7 @@ layout: home
 # Index page
 ---
 
+<<<<<<< HEAD
 ## 🚀 Latest Audit & Build Updates
 
 {% for post in site.posts limit:5 %}
@@ -11,3 +12,23 @@ layout: home
 {% endfor %}
 
 <hr>
+=======
+<link rel="stylesheet" href="{{ '/assets/css/design-system.css' | relative_url }}">
+
+<div class="tools-header" style="border-bottom: none; padding-bottom: 0;">
+  <h1 style="border: none;">🚀 Raw Founder Operations</h1>
+  <p>The latest case studies, build logs, and brutal AI reviews from the front lines of Indian SaaS.</p>
+</div>
+
+<div class="audit-grid">
+  {% for post in site.posts limit:6 %}
+    {% include card-item.html title=post.title url=post.url description=post.description date=post.date category=post.categories[0] tags=post.tags %}
+  {% endfor %}
+</div>
+
+<hr style="margin: 4rem 0;">
+
+<div style="text-align: center;">
+  <p class="text-muted">Looking for something specific? Dive into the categorized tabs in the sidebar.</p>
+</div>
+>>>>>>> e229eb9bcfb4f8c29e215d935c1ce5162e738051

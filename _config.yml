@@ -21,6 +21,9 @@ tagline: Brutal business audits and founder-centric builds. # it will display as
 description: >- # used by seo meta and the atom feed
   Founder-focused platform for SaaS audits, build-in-public logs, and brutal AI reviews.
 
+# Site logo (recommended)
+logo: /assets/img/logo.png
+
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
 url: "https://saurabh-vision.github.io"
