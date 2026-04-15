@@ -1,12 +1,100 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>ROI Calculator - Saurabh Audit</title>
-    <style>body { font-family: sans-serif; padding: 2rem; }</style>
-</head>
-<body>
-    <h1>ROI Calculator (Sample)</h1>
-    <p>This is a placeholder for the ROI Calculator tool.</p>
-</body>
-</html>
+---
+layout: page
+title: SaaS ROI Calculator
+---
+
+<div class="card p-4">
+    <p class="text-muted mb-4">Calculate your SaaS return on investment by analyzing CAC, LTV, and payback period.</p>
+    
+    <div class="grid-inputs mb-4">
+        <div class="form-group mb-3">
+            <label class="font-weight-bold small">Customer Acquisition Cost (CAC)</label>
+            <div class="input-group">
+                <span class="input-group-text bg-dark border-secondary text-white">$</span>
+                <input type="number" id="cac" class="form-control bg-dark border-secondary text-white" value="100">
+            </div>
+        </div>
+        
+        <div class="form-group mb-3">
+            <label class="font-weight-bold small">Monthly Revenue Per User (ARPU)</label>
+            <div class="input-group">
+                <span class="input-group-text bg-dark border-secondary text-white">$</span>
+                <input type="number" id="arpu" class="form-control bg-dark border-secondary text-white" value="50">
+            </div>
+        </div>
+
+        <div class="form-group mb-3">
+            <label class="font-weight-bold small">Monthly Churn Rate (%)</label>
+            <input type="number" id="churn" class="form-control bg-dark border-secondary text-white" value="5">
+        </div>
+    </div>
+    
+    <button onclick="calculateROI()" class="btn btn-primary btn-lg w-100 mb-4">Calculate ROI →</button>
+
+    <div id="results" style="display: none;">
+        <div class="row text-center mb-4">
+            <div class="col-md-4">
+                <div class="p-3 bg-dark rounded border border-secondary shadow-sm h-100">
+                    <div class="text-muted small uppercase">LTV</div>
+                    <div id="ltv-val" class="h4 font-weight-bold text-accent">$0</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-3 bg-dark rounded border border-secondary shadow-sm h-100">
+                    <div class="text-muted small uppercase">LTV:CAC</div>
+                    <div id="ratio-val" class="h4 font-weight-bold text-accent">0:1</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-3 bg-dark rounded border border-secondary shadow-sm h-100">
+                    <div class="text-muted small uppercase">Payback</div>
+                    <div id="payback-val" class="h4 font-weight-bold text-accent">0 mo</div>
+                </div>
+            </div>
+        </div>
+        <div id="roi-status" class="alert p-3 rounded text-center font-weight-bold"></div>
+    </div>
+</div>
+
+<script>
+    function calculateROI() {
+        const cac = parseFloat(document.getElementById('cac').value) || 0;
+        const arpu = parseFloat(document.getElementById('arpu').value) || 0;
+        const churn = parseFloat(document.getElementById('churn').value) / 100 || 0;
+        
+        const results = document.getElementById('results');
+        
+        // LTV = ARPU / Churn
+        const ltv = churn > 0 ? arpu / churn : arpu * 12; // fallback to 12 months if churn is 0
+        const ratio = cac > 0 ? ltv / cac : 0;
+        const payback = arpu > 0 ? cac / arpu : 0;
+
+        results.style.display = 'block';
+        document.getElementById('ltv-val').innerText = `$${ltv.toFixed(0)}`;
+        document.getElementById('ratio-val').innerText = `${ratio.toFixed(1)}:1`;
+        document.getElementById('payback-val').innerText = `${payback.toFixed(1)} mo`;
+
+        const status = document.getElementById('roi-status');
+        if (ratio >= 3) {
+            status.className = 'alert alert-success bg-success-subtle text-success border-success mt-4';
+            status.innerHTML = '✅ <strong>Healthy Unit Economics!</strong> Your LTV:CAC ratio is above 3:1.';
+        } else if (ratio >= 1) {
+            status.className = 'alert alert-warning bg-warning-subtle text-warning border-warning mt-4';
+            status.innerHTML = '⚠️ <strong>Marginal Performance.</strong> Focus on reducing CAC or improving expansion revenue.';
+        } else {
+            status.className = 'alert alert-danger bg-danger-subtle text-danger border-danger mt-4';
+            status.innerHTML = '🚨 <strong>Unsustainable!</strong> You are spending more to acquire users than they are worth.';
+        }
+
+        results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+</script>
+
+<style>
+    .grid-inputs { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; }
+    .text-accent { color: var(--accent-color); }
+    .bg-success-subtle { background: rgba(40, 167, 69, 0.1) !important; }
+    .bg-warning-subtle { background: rgba(255, 193, 7, 0.1) !important; }
+    .bg-danger-subtle { background: rgba(220, 53, 69, 0.1) !important; }
+</style>
+

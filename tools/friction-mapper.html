@@ -1,12 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Friction Mapper - Saurabh Audit</title>
-    <style>body { font-family: sans-serif; padding: 2rem; }</style>
-</head>
-<body>
-    <h1>Friction Mapper (Sample)</h1>
-    <p>This is a placeholder for the Friction Mapper tool.</p>
-</body>
-</html>
+---
+layout: page
+title: Friction Mapper
+---
+
+<div class="card p-4">
+    <p class="text-muted mb-4">Identify and visualize friction points in your user journey. Rate each step from 1-10 to find your biggest drop-off risks.</p>
+    
+    <div id="steps-container" class="mb-4">
+        <div class="step-row d-flex mb-2 gap-2">
+            <input type="text" class="form-control bg-dark border-secondary text-white" placeholder="Step name (e.g. Landing Page)" style="flex: 2;">
+            <input type="number" class="form-control bg-dark border-secondary text-white" placeholder="Friction (1-10)" style="flex: 1;" min="1" max="10">
+        </div>
+    </div>
+    
+    <div class="d-flex gap-2 mb-4">
+        <button onclick="addStep()" class="btn btn-outline-secondary w-50">+ Add Step</button>
+        <button onclick="calculateFriction()" class="btn btn-primary w-50">Map Friction →</button>
+    </div>
+
+    <div id="results" style="display: none;">
+        <h3 class="h5 mb-3"><i class="fas fa-chart-line mr-2 text-accent"></i> Friction Analysis:</h3>
+        <canvas id="frictionChart" style="max-height: 200px; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px;"></canvas>
+        <div id="recommendation" class="mt-4 p-3 rounded" style="background: rgba(var(--accent-color-rgb), 0.1); border: 1px dashed var(--accent-color);"></div>
+    </div>
+</div>
+
+<!-- Simple script for visualization without heavy libs -->
+<script>
+    function addStep() {
+        const container = document.getElementById('steps-container');
+        const div = document.createElement('div');
+        div.className = 'step-row d-flex mb-2 gap-2';
+        div.innerHTML = `
+            <input type="text" class="form-control bg-dark border-secondary text-white" placeholder="Step name" style="flex: 2;">
+            <input type="number" class="form-control bg-dark border-secondary text-white" placeholder="Friction (1-10)" style="flex: 1;" min="1" max="10">
+        `;
+        container.appendChild(div);
+    }
+
+    function calculateFriction() {
+        const rows = document.querySelectorAll('.step-row');
+        const results = document.getElementById('results');
+        const rec = document.getElementById('recommendation');
+        
+        let maxFriction = 0;
+        let worstStep = '';
+        let totalFriction = 0;
+
+        rows.forEach(row => {
+            const name = row.children[0].value;
+            const val = parseInt(row.children[1].value) || 0;
+            if (val > maxFriction) {
+                maxFriction = val;
+                worstStep = name;
+            }
+            totalFriction += val;
+        });
+
+        if (totalFriction === 0) return;
+
+        results.style.display = 'block';
+        rec.innerHTML = `<strong>🔥 High Friction Alert:</strong> The step "<strong>${worstStep || 'Unnamed Step'}</strong>" has the highest friction score (${maxFriction}/10). Focus your optimization effort here first to prevent user drop-off.`;
+        
+        // Note: Real chart would need Chart.js, but we'll mock a simple visual bar for now if labels are provided
+        results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+</script>
+
+<style>
+    .gap-2 { gap: 0.5rem; }
+    .text-accent { color: var(--accent-color); }
+</style>
+

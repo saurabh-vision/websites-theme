@@ -1,0 +1,98 @@
+---
+# Chirpy custom styles
+---
+
+@import "main";
+
+/* Premium Aesthetics for Saurabh Audit */
+
+:root {
+  --accent-color: #00ff88; /* Brutal Neon Green */
+  --accent-color-rgb: 0, 255, 136;
+  --bg-dark: #0f172a; /* Sleek Slate Dark */
+  --card-bg: rgba(30, 41, 59, 0.7);
+}
+
+body {
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Glassmorphism Cards */
+.card, .post-preview {
+  background: var(--card-bg) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.card:hover, .post-preview:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px -10px rgba(var(--accent-color-rgb), 0.3) !important;
+  border-color: var(--accent-color) !important;
+}
+
+/* Accent Buttons */
+.btn-primary {
+  background-color: var(--accent-color) !important;
+  border-color: var(--accent-color) !important;
+  color: #000 !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  box-shadow: 0 0 15px var(--accent-color);
+}
+
+/* Sidebar Styling */
+#sidebar {
+  background: #020617 !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#sidebar .nav-link.active {
+  color: var(--accent-color) !important;
+}
+
+#sidebar .nav-link:hover {
+  color: var(--accent-color) !important;
+}
+
+/* Heading Highlights */
+h1, h2, h3 {
+  color: #f8fafc;
+}
+
+h2 {
+  border-left: 4px solid var(--accent-color);
+  padding-left: 1rem;
+  margin-top: 2rem;
+}
+
+/* Badge Styling */
+.badge {
+  background-color: var(--accent-color) !important;
+  color: #000 !important;
+}
+
+/* Tools Specific Styles */
+.tool-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Logo pulse animation */
+@keyframes pulse-accent {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); filter: drop-shadow(0 0 5px var(--accent-color)); }
+  100% { transform: scale(1); }
+}
+
+#sidebar-logo:hover {
+  animation: pulse-accent 2s infinite ease-in-out;
+}

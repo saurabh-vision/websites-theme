@@ -55,19 +55,9 @@ The site uses automated loops to keep the Home page and Sidebar Tabs fresh.
 - **Section Tabs**: Each sidebar tab (e.g., Case Studies) automatically filters and lists posts that are stored in its corresponding `_posts/` subfolder.
 - **Workflow**: Just drop a new file in the correct folder with the correct naming, and it will appear everywhere automatically!
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
 ### 6. Design System & Branding
-The site uses a unified, theme-aware design system.
-- **Accents**: Update `--audit-accent` in `assets/css/design-system.css` to change the primary brand color site-wide.
-- **Unified Cards**: All listing pages (Home, Tools, Case Studies, etc.) use the reusable `_includes/card-item.html` template. 
-- **Theme Support**: The design system automatically detects and responds to the site's Light/Dark mode toggle by using CSS variables.
-- **Icons**: Icons and SVGs are configured to use `currentColor`, ensuring perfect compatibility across all theme transitions.
+The site follows the standard Chirpy theme design for a clean, professional, and minimalist aesthetic.
 
->>>>>>> e229eb9bcfb4f8c29e215d935c1ce5162e738051
->>>>>>> 5177466c0f506205f27ca28adaa21f10b37c364b
 ## Pre-flight Check
 Before deploying, run the local test script to check for broken links:
 ```shell

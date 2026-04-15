@@ -1,50 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Splitter</title>
-    <style>
-        body { font-family: -apple-system, system-ui, sans-serif; padding: 2rem; max-width: 600px; margin: 0 auto; line-height: 1.6; background: #f8f9fa; }
-        .card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        h1 { margin-top: 0; color: #1a1a1a; }
-        textarea { width: 100%; height: 150px; padding: 10px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 1rem; }
-        button { background: #28a745; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; }
-        button:hover { background: #218838; }
-        #results { margin-top: 2rem; display: none; }
-        .block { margin-bottom: 10px; padding: 10px; background: #f1f3f5; border-radius: 6px; border-left: 4px solid #28a745; }
-    </style>
-</head>
-<body>
-    <div class="card">
-        <h1>✉️ Email Splitter</h1>
-        <p>Break long founder emails into actionable sentences.</p>
-        <textarea id="email" placeholder="Paste long email text here..."></textarea>
-        <button onclick="split()">Split Email</button>
+---
+layout: page
+title: Email Splitter
+---
 
-        <div id="results">
-            <h3>Actionable Blocks:</h3>
-            <div id="list"></div>
-        </div>
+<div class="card p-4">
+    <p class="text-muted mb-4">Break long founder emails into actionable sentences. Improve clarity and response rates.</p>
+    
+    <div class="form-group mb-4">
+        <label for="email" class="form-label font-weight-bold">Paste Email Content</label>
+        <textarea id="email" class="form-control" style="height: 200px; background: rgba(0,0,0,0.1); color: white; border: 1px solid var(--accent-color);" placeholder="Paste long email text here..."></textarea>
     </div>
+    
+    <button onclick="split()" class="btn btn-primary btn-lg w-100 mb-4">Split Email →</button>
 
-    <script>
-        function split() {
-            const text = document.getElementById('email').value;
-            const results = document.getElementById('results');
-            const list = document.getElementById('list');
-            list.innerHTML = '';
-            
-            const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 5);
+    <div id="results" style="display: none;">
+        <h3 class="h5 mb-3"><i class="fas fa-tasks mr-2 text-accent"></i> Actionable Blocks:</h3>
+        <div id="list"></div>
+    </div>
+</div>
 
-            results.style.display = 'block';
-            sentences.forEach(s => {
-                const div = document.createElement('div');
-                div.className = 'block';
-                div.innerText = s.trim();
-                list.appendChild(div);
-            });
-        }
-    </script>
-</body>
-</html>
+<script>
+    function split() {
+        const text = document.getElementById('email').value;
+        const results = document.getElementById('results');
+        const list = document.getElementById('list');
+        list.innerHTML = '';
+        
+        if (!text.trim()) return;
+
+        // Split by sentence endings but keep the endings
+        const sentences = text.split(/(?<=[.!?])\s+/).filter(s => s.trim().length > 5);
+
+        results.style.display = 'block';
+        sentences.forEach(s => {
+            const div = document.createElement('div');
+            div.className = 'block mb-2 p-3 rounded';
+            div.style.background = 'rgba(255,255,255,0.05)';
+            div.style.borderLeft = '4px solid var(--accent-color)';
+            div.innerText = s.trim();
+            list.appendChild(div);
+        });
+        
+        // Scroll to results
+        results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+</script>
+
+<style>
+    .text-accent { color: var(--accent-color); }
+    #email::placeholder { color: rgba(255,255,255,0.3); }
+</style>
+
