@@ -4,7 +4,7 @@
   category: Finance
   tags: [Finance, Popular]
   features: ["LTV/CAC Ratio", "Payback Period", "Churn Analysis", "Export Reports"]
-  icon: "📈"
+  icon: "fas fa-chart-line"
   minutes: 5
   badge: "Popular"
   url: /tools/roi-calculator.html
@@ -15,7 +15,7 @@
   category: Product
   tags: [Product, New]
   features: ["Visual Funnel Map", "Heat Maps", "Drop-off Analysis", "Smart Suggestions"]
-  icon: "⚡"
+  icon: "fas fa-user-clock"
   minutes: 10
   badge: "New"
   url: /tools/friction-mapper.html
@@ -26,7 +26,7 @@
   category: Strategy
   tags: [SaaS, Pricing]
   features: ["Price Anchor Check", "Tiered Structure", "Add-on Strategy", "Currency Audit"]
-  icon: "💰"
+  icon: "fas fa-file-invoice-dollar"
   minutes: 3
   badge: "New"
   url: /tools/saas-pricing-audit.html
@@ -37,7 +37,8 @@
   category: Productivity
   tags: [Productivity, Mail]
   features: ["Action Item Extract", "Clarity Check", "Spam Word Filter", "Copy to Clipboard"]
-  icon: "✉️"
+  icon: "fas fa-envelope-open-text"
   minutes: 2
   badge: ""
   url: /tools/email-splitter.html
+
