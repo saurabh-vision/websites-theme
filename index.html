@@ -12,14 +12,7 @@ layout: home
 
 <div class="audit-grid">
   {% for post in site.posts limit:6 %}
-    {% include card-item.html 
-      title=post.title 
-      url=post.url 
-      description=post.description 
-      date=post.date 
-      category=post.categories[0] 
-      tags=post.tags
-    %}
+    {% include card-item.html title=post.title url=post.url description=post.description date=post.date category=post.categories[0] tags=post.tags %}
   {% endfor %}
 </div>
 

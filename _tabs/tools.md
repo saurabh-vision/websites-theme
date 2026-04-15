@@ -29,16 +29,7 @@ icon: fas fa-tools
 
 <div class="audit-grid">
 {% for tool in site.data.tools %}
-  {% include card-item.html 
-    title=tool.name 
-    url=tool.url 
-    description=tool.description 
-    category=tool.category 
-    icon=tool.icon 
-    tags=tool.tags 
-    badge=tool.badge 
-    minutes=tool.minutes
-  %}
+  {% include card-item.html title=tool.name url=tool.url description=tool.description category=tool.category icon=tool.icon tags=tool.tags badge=tool.badge minutes=tool.minutes %}
 {% endfor %}
 </div>
 

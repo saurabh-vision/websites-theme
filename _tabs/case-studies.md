@@ -15,14 +15,6 @@ icon: fas fa-file-contract
 <div class="audit-grid">
   {% assign section_posts = site.posts | where_exp: "post", "post.path contains 'case-studies/'" %}
   {% for post in section_posts %}
-    {% include card-item.html 
-      title=post.title 
-      url=post.url 
-      description=post.description 
-      date=post.date 
-      category="Case Study" 
-      tags=post.tags
-      icon="📄"
-    %}
+    {% include card-item.html title=post.title url=post.url description=post.description date=post.date category="Case Study" tags=post.tags icon="📄" %}
   {% endfor %}
 </div>
