@@ -197,3 +197,39 @@ h2 {
 #sidebar-logo:hover {
   animation: pulse-accent 2s infinite ease-in-out;
 }
+
+/* Footer Enhancements */
+footer {
+  background: rgba(var(--bg-dark), 0.5);
+  backdrop-filter: blur(5px);
+  margin-top: 4rem !important;
+}
+
+.footer-item {
+  transition: opacity 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.footer-item:hover {
+  opacity: 1;
+}
+
+.footer-item span.text-white {
+  position: relative;
+  display: inline-block;
+}
+
+.footer-item span.text-white::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+.footer-item:hover span.text-white::after {
+  width: 100%;
+}
