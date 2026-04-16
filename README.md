@@ -1,78 +1,216 @@
-# Chirpy Starter
+# 🚀 saurabhaudit.com — Global Founder Authority & Product Launchpad (2025–2026)
 
-[![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy)][gem]&nbsp;
-[![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy-starter.svg?color=blue)][mit]
+> **"Frictionless Indian Builder → Global Authority → Startup Launch"**  
+> Building in public. Auditing the world's startups. Launching extensions, apps, and tools with a built-in audience.
 
-A minimal, ready-to-use template for creating a blog with the [**Chirpy**][chirpy] Jekyll theme. Get up and running in minutes with all critical files pre-configured.
+---
 
-## Why This Starter Exists
+## About This Project
 
-When installing Chirpy through [RubyGems.org][gem], Jekyll can only read a subset of theme files (`_data`, `_layouts`, `_includes`, `_sass`, `assets`) and limited `_config.yml` options from the gem. As a result, users cannot enjoy the full out-of-the-box experience that Chirpy offers.
+**saurabhaudit.com** is a modern personal brand, learning hub, and product launchpad for a new-gen founder—combining deep audits, open SaaS/AI learnings, and the real "Build in Public" journey.  
+**The mindset:** Build real products (browser extensions, apps, founder tools), let your audience in on the behind-the-scenes, and use your site to bootstrap every launch.
 
-To unlock all features, the following files must be present in your Jekyll site:
+---
 
-```shell
-.
-├── _config.yml
-├── _plugins
-├── _tabs
-└── index.html
-```
+## USP — What Makes This Brand Unique?
 
-This starter bundles those files from the latest **Chirpy** release along with a [CD][CD] workflow, so you can start writing immediately.
+- **Authority-First:** Founder-grade teardown articles—not just news—plus live projects/experiments & product launches.
+- **Built-In Launch Audience:** Every new app/extension/tool is launched via the site’s audience & content flywheel (you never “start from zero”).
+- **Indian Builder Lens ("built in friction")**: Survive tough markets, scale globally—practical, transparent, actionable playbooks.
+- **GEO and AI-Optimized:** Every page designed for Google/AI/Perplexity/LLM discovery with summaries, FAQs, and rich schema.
+- **Secure & Private Build:** All development and content in a private GitHub repo until public launch.
+- **Continuous Feedback Loop:** Beta waitlists, feedback collection built into every product/project section.
+- **Commercial Edge:** Launchpad for SaaS, extensions, apps—zero marketing spend, trust & installs via owned audience.
 
-## Saurabh Audit Customization
+---
 
-### 1. How to update the Origin (About) page
-The "Origin" tab is located at `_tabs/origin.md`. Edit this file to share your founder story, vision, and mission. It is configured as Order 1 in the sidebar.
+## Target Audience & Niche
 
-### 2. How to manage the Archive
-- **Storage**: Upload your PDF, checksheets, or resources to `/assets/archive/`.
-- **Linking**: Add the link to your file in `_tabs/archive.md`. 
-  - Example: `[Market Checklist](../assets/archive/my-file.pdf)`
+| Segment        | Detail                                                              |
+|----------------|---------------------------------------------------------------------|
+| Tier-1 GEOs    | USA, UK, Canada, Australia, Singapore (high buying power)           |
+| Audience       | Founders, indie makers, builders, PMs, SaaS/AI/automation curious   |
+| Age            | 20–35                                                               |
+| Type           | Value teardown insights, early tools, actionable playbooks          |
+| Intent         | Ready to install, test, give feedback, share launches               |
 
-### 3. How to add a new Tool
-This section is fully automated and designed for speed.
-- **Save Tool**: Save your standalone HTML/JS tool file into the `/tools/` directory (e.g., `my-new-tool.html`).
-- **Register**: Add an entry to `_data/tools.yml`.
-  - **Required fields**: `name`, `slug`, `description`, `category`, `tags` (array), `features` (array), `minutes`, `badge`, `url`.
-- **Display**: The Tools Library page will automatically render a premium card with feature lists and category tags.
+---
 
-### 4. How to add a new Post
-To keep the site organized, posts are categorized by folder within `_posts/`.
-- **Location**: Place your Markdown file in the corresponding subfolder:
-  - `_posts/case-studies/`
-  - `_posts/build-in-public/`
-  - `_posts/brutal-ai-reviews/`
-  - `_posts/projects/`
-- **Naming**: Use the strict Jekyll convention: `YYYY-MM-DD-title.md`. 
-  - *Example*: `2026-05-01-saas-pricing-failure.md`
-- **Categorization**: Ensure the `categories` field in your front matter matches the section (e.g., `categories: [Case Studies]`).
+## Strategic Content Pillars
 
-### 5. Automated Content Listing
-The site uses automated loops to keep the Home page and Sidebar Tabs fresh.
-- **Home Page**: The "Latest Audit & Build Updates" section shows the 5 most recent posts from all categories combined.
-- **Section Tabs**: Each sidebar tab (e.g., Case Studies) automatically filters and lists posts that are stored in its corresponding `_posts/` subfolder.
-- **Workflow**: Just drop a new file in the correct folder with the correct naming, and it will appear everywhere automatically!
+1. **Startup Audits & "Build in Public" Logs**  
+   - Honest breakdowns, teardown articles  
+   - Weekly progress/experiment sharing
 
-### 6. Design System & Branding
-The site follows the standard Chirpy theme design for a clean, professional, and minimalist aesthetic.
+2. **Founder Finance & Tools**  
+   - Guides, calculators—built-in tools (HTML/CSS/JS)—open for all to use
 
-## Pre-flight Check
-Before deploying, run the local test script to check for broken links:
-```shell
-./tools/test.sh
-```
+3. **Product/Extension/App Launches**  
+   - Each tool/app/extension has its own SEO-optimized landing page:
+     - Features, install/download, demo, FAQs, screenshots, feedback  
+   - “Coming soon” and beta waitlists for all new projects
 
-## Contributing
+4. **Growth & Authority Playbooks**  
+   - LinkedIn/content growth hacks, feedback loops, real acquisition journey
+   - Community-building via content, not just social
 
-This repository is automatically updated with new releases from the theme repository. If you encounter any issues or want to contribute to its improvement, please visit the [theme repository][chirpy] to provide feedback.
+---
 
-## License
+## Product & Tool Launch Strategy
 
-This work is published under [MIT][mit] License.
+- **Dedicated Launch Pages:**  
+  Each Chrome Extension, Play Store App, or founder tool gets:
+    - Value headline & install/download buttons
+    - Screenshots, demo GIFs, feature highlights
+    - Use-cases, testimonials, user feedback section
+    - Mini FAQ & privacy/permissions description
+    - “Early access”/“Get Beta Updates” form (simple HTML or Google Form/email)
+    - Changelog & feedback log
 
-[gem]: https://rubygems.org/gems/jekyll-theme-chirpy
-[chirpy]: https://github.com/cotes2020/jekyll-theme-chirpy/
-[CD]: https://en.wikipedia.org/wiki/Continuous_deployment
-[mit]: https://github.com/cotes2020/chirpy-starter/blob/master/LICENSE
+- **In-Public Build Logs:**  
+    - Milestone/weekly build logs integrated in content  
+    - Share progress, obstacles, lessons, feedback
+
+- **Discovery & SEO:**  
+    - Product pages use “NAME Chrome Extension”, “NAME Android App India” etc.
+    - OG meta, JSON-LD, above-the-fold CTA for downloads/installs
+
+---
+
+## Website Architecture & Section Flow
+
+- **Homepage:**  
+  - Hero + intro to audits, tools, products  
+  - Featured teardown or latest app/extension  
+  - Quick stats (launched tools, active installs, feedback count)
+  - Social proof (testimonials, shares)
+
+- **Sidebar/Menu:**  
+  - Home  
+  - Audits & Case Studies (`/audits`)  
+  - Build in Public (`/logs`)  
+  - Founder Tools (`/tools`)  
+  - Product/App Launches (`/launches`) 
+  - About (`/about`)  
+  -  Brutal AI Reviews (/Ai )
+
+- **Section Pages:**  
+  - Each pillar has a listing page (SEO & discoverable)
+  - Every article/log = Q&A summary, FAQ, data tables, schema-enhanced
+
+- **Product Launch Pages:**  
+  - `/launches/my-extension.md`, plus custom `/tools/app.html` if interactive
+
+- **Waitlist & Feedback Forms:**  
+  - Simple HTML/Google Form for beta signups/feedback collection
+
+---
+
+## Tech Stack & Setup
+
+| Tool             | Use                                   | Highlights                                 |
+|------------------|---------------------------------------|--------------------------------------------|
+| Chirpy/Jekyll    | Static site, blog, launches, tools    | Free, Markdown-driven, easy to customize   |
+| GitHub Pages (Private Repo) | Hosting, source control     | 100% private until you push public         |
+| Cloudflare Pages | Fast/free static hosting, CDN, SSL    | Connects to GitHub, global reach           |
+| Cloudflare DNS   | Domain, security                      | Custom domain, secure & fast               |
+| Plausible        | Analytics                             | Privacy-first, easy setup                  |
+| Stripe           | Payments if needed                    | Digital tools/products in future           |
+| Canva            | Graphics                              | Infographics, logos, screenshots           |
+| ChatGPT/Claude   | Content writing, formatting           | FAQ, schema, summaries                     |
+
+---
+
+## Traffic & Growth Plan
+
+### Target by Month 6
+
+| Source               | % Share     |
+|----------------------|-------------|
+| Google SEO           | 40%         |
+| LinkedIn/Social      | 30%         |
+| AI/LLM Discovery     | 15%         |
+| Direct/Referral      | 10%         |
+| Other                | 5%          |
+
+### Growth Path
+
+- Weekly content: Install guides, launch breakdowns, build logs
+- LinkedIn/Twitter: Launch teasers, threads, demo content, download CTAs
+- Extension/app promotional blocks on homepage, launch listing, and sidebar
+- Waitlist/early access signup forms for all products
+
+---
+
+## GEO & SEO — The New Citation Game
+
+- AI-first page summaries and schema for all launches/articles
+- “NAME Chrome Extension”, “NAME Android App India”, long-tail SEO 
+- Q&A, FAQ, demo GIFs for AI/citation/featured snippet extractability
+- Weekly prompt audit (Perplexity, ChatGPT, Bing Copilot, etc.)
+
+---
+
+## LinkedIn Leveraging Strategy
+
+- 2–3 value posts/week:
+    - Build logs, GIF demos, feature drops, review encouragement, “early bird” CTAs
+- On launch: 
+    - Carousel/video, install CTA, request for ratings/feedback, early user shoutouts
+- Repurposing:
+    - Article → LinkedIn post → micro-content for other channels
+
+---
+
+## 6-Month Roadmap to Authority & Launches
+
+| Month | Focus                                 | Key Actions                                |
+|-------|---------------------------------------|--------------------------------------------|
+| 1     | Foundation                            | Site live, “Labs/Launches” page, audit     |
+| 2     | Content Pillars & First Beta Launch   | 1st extension/app launch, feedback         |
+| 3     | Community & Pre-Launch Audience       | Build logs, polls, waitlist growth         |
+| 4     | GEO/AI Optimization                   | Schema/meta, prompt testing                |
+| 5     | More Launches + User Stories          | New product promos, highlight user value   |
+| 6     | Scale & Collaborate                   | Collabs, optimize hits, launch improvements|
+
+---
+
+## Free Tool Stack
+
+| Category           | Tool                    | Use                                      |
+|--------------------|------------------------|------------------------------------------|
+| Static Site & Blog | Chirpy (Jekyll)        | Markdown, SEO, launches + tools          |
+| Hosting (Private)  | GitHub Repo + Cloudflare Pages | Secure, free, global versioned   |
+| CDN + SSL          | Cloudflare             | Fast, secure, easy setup                 |
+| Analytics          | Plausible              | Simple, privacy-first                    |
+| Social Growth      | LinkedIn, AuthoredUp   | Posting, growth, community               |
+| AI/Prompt Tracking | Perplexity, ChatGPT    | Weekly AI citations, prompt tests         |
+| Visuals            | Canva                  | Graphics, screenshots, banners           |
+| Forms              | Google Forms/HTML      | Waitlist, feedback collection            |
+
+---
+
+## Weekly Metrics to Track
+
+- Website: Visitors, top launches/tools, installs, feedback signups
+- Social (LinkedIn, Twitter): Followers, post reach, waitlist uptick
+- GEO/AI: How many AI/citations each product/article gets
+- Product: Installs, reviews, usage, feedback impact
+
+---
+
+## Cost & Revenue Potential
+
+| Item                | Monthly | Yearly   | Source                      |
+|---------------------|---------|----------|-----------------------------|
+| GitHub Pages (Private) | $0   | $0       | Free via Cloudflare Pages   |
+| Domain (.com)       | ₹67     | ₹800     | Namecheap/Cloudflare        |
+| Cloudflare          | $0      | $0       | Free plan                   |
+| Jekyll Theme        | $0      | $0       | Open source (Chirpy)        |
+| Stripe/Payments     | 2.9%+30¢| Variable | Only applies on sales       |
+
+
+---
+
+> **Audience pehle build karo — launch easy ho jaata hai.  
+> Consistent content + product launches + feedback = organic growth.**
