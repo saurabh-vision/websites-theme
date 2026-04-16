@@ -16,7 +16,25 @@ icon: fas fa-folder-open
       <time class="text-muted small"><i class="fas fa-external-link-alt mr-1"></i> Live Portfolio</time>
     </div>
     <h2 class="h4 font-weight-bold mb-3 mt-1"><a href="{{ post.url | relative_url }}" class="text-white hover-accent">{{ post.title }}</a></h2>
-    <p class="text-muted mb-4">{{ post.excerpt | strip_html | truncate: 180 }}</p>
+    
+    {% if post.description %}
+      <span class="post-description">{{ post.description }}</span>
+    {% endif %}
+
+    <div class="post-meta-wrapper mb-4">
+      {% if post.categories.size > 0 %}
+        <span class="meta-chip category">
+          <i class="fas fa-folder-open"></i> {{ post.categories | first }}
+        </span>
+      {% endif %}
+      
+      {% for tag in post.tags %}
+        <span class="meta-chip tag">
+          <i class="fas fa-tag"></i> {{ tag }}
+        </span>
+      {% endfor %}
+    </div>
+
     <a href="{{ post.url | relative_url }}" class="btn btn-sm btn-outline-primary px-4">View Project Details</a>
   </div>
   {% endfor %}

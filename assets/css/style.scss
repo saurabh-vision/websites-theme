@@ -194,7 +194,76 @@ h2 {
   100% { transform: scale(1); }
 }
 
+
 #sidebar-logo:hover {
   animation: pulse-accent 2s infinite ease-in-out;
+}
+
+/* Post List Enhancements */
+.post-description {
+  color: #94a3b8;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin: 0.4rem 0 0.6rem 0;
+  display: block;
+  font-weight: 400;
+}
+
+.post-meta-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 0.4rem;
+}
+
+.meta-chip {
+  font-size: 0.7rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 6px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.meta-chip i {
+  margin-right: 0.3rem;
+  font-size: 0.6rem;
+}
+
+.meta-chip.category {
+  background: rgba(var(--accent-color-rgb), 0.1);
+  color: var(--accent-color);
+  border: 1px solid rgba(var(--accent-color-rgb), 0.2);
+}
+
+.meta-chip.tag {
+  background: rgba(255, 255, 255, 0.05);
+  color: #94a3b8;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Specific Timeline Adjustments */
+#archives li {
+  margin-bottom: 2rem !important;
+  position: relative;
+}
+
+#archives li > div {
+  display: block !important; /* Stack info below title */
+}
+
+#archives .post-description {
+  margin-left: 0;
+  max-width: 600px;
+}
+
+@media (max-width: 768px) {
+  .post-description {
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
+  }
 }
 

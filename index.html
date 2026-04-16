@@ -23,7 +23,24 @@ layout: home
           <small class="text-muted">{{ post.date | date: "%b %d, %Y" }}</small>
         </div>
         <h3 class="h5 mb-2"><a href="{{ post.url | relative_url }}" class="text-white">{{ post.title }}</a></h3>
-        <p class="text-muted small mb-0">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+        
+        {% if post.description %}
+          <span class="post-description">{{ post.description }}</span>
+        {% endif %}
+
+        <div class="post-meta-wrapper">
+          {% if post.categories.size > 0 %}
+            <span class="meta-chip category">
+              <i class="fas fa-folder-open"></i> {{ post.categories | first }}
+            </span>
+          {% endif %}
+          
+          {% for tag in post.tags %}
+            <span class="meta-chip tag">
+              <i class="fas fa-tag"></i> {{ tag }}
+            </span>
+          {% endfor %}
+        </div>
       </div>
       {% endfor %}
     </div>
