@@ -3,6 +3,7 @@ layout: page
 title: "Tools Library"
 order: 6
 icon: fas fa-tools
+permalink: /tools/
 ---
 
 <p class="lead text-muted mb-5">Free calculators, templates, and frameworks designed specifically for Indian SaaS founders. No fluff, just tools that work.</p>
