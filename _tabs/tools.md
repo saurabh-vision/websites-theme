@@ -7,9 +7,17 @@ icon: fas fa-tools
 
 <p class="lead text-muted mb-5">Free calculators, templates, and frameworks designed specifically for Indian SaaS founders. No fluff, just tools that work.</p>
 
+<div class="filter-bar mb-5">
+  <button class="filter-btn active" data-category="all">All</button>
+  <button class="filter-btn" data-category="Finance">Finance</button>
+  <button class="filter-btn" data-category="Product">Product</button>
+  <button class="filter-btn" data-category="Strategy">Strategy</button>
+  <button class="filter-btn" data-category="Productivity">Productivity</button>
+</div>
+
 <div class="tools-grid">
   {% for tool in site.data.tools %}
-  <div class="tool-card">
+  <div class="tool-card" data-category="{{ tool.category }}">
     {% if tool.badge != "" %}
     <span class="tool-badge">{{ tool.badge }}</span>
     {% endif %}
@@ -27,13 +35,36 @@ icon: fas fa-tools
       {% endfor %}
     </ul>
     
-    <div class="tool-footer">
-      <span class="small text-muted"><i class="far fa-clock mr-1"></i> {{ tool.minutes }} min</span>
-      <a href="{{ tool.url | relative_url }}" class="tool-link">Launch Tool <i class="fas fa-arrow-right"></i></a>
+    <div class="tool-footer mt-4">
+      <a href="{{ tool.url | relative_url }}" class="btn-v2-launch">Launch Tool <i class="fas fa-rocket ml-2"></i></a>
     </div>
   </div>
   {% endfor %}
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const toolCards = document.querySelectorAll('.tool-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const category = btn.getAttribute('data-category');
+
+      toolCards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+});
+</script>
 
 <hr class="my-5">
 
