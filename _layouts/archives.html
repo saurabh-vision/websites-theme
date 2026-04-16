@@ -9,22 +9,24 @@ layout: page
 
     {% if cur_year != last_year %}
       {% unless forloop.first %}</ul>{% endunless %}
-      <div class="year lead">{{ cur_year }}</div>
-      <ul class="list-unstyled">
-        {% assign last_year = cur_year %}
+      <div class="year lead font-weight-bold mb-3 mt-4 text-accent">{{ cur_year }}</div>
+      <ul class="list-unstyled mb-5">
+      {% assign last_year = cur_year %}
     {% endif %}
 
-    <li>
-      <div>
-        <span class="date day" data-ts="{{ post.date | date: '%s' }}" data-df="DD">{{ post.date | date: "%d" }}</span>
-        <span class="date month small text-muted ms-1" data-ts="{{ post.date | date: '%s' }}" data-df="MMM">{{ post.date | date: "%b" }}</span>
-        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    <li class="mb-4">
+      <div class="p-3 rounded border border-secondary hover-shift" style="background: rgba(255,255,255,0.02);">
+        <div class="mb-1">
+          <span class="date day font-weight-bold" data-ts="{{ post.date | date: '%s' }}" data-df="DD">{{ post.date | date: "%d" }}</span>
+          <span class="date month small text-muted ms-1" data-ts="{{ post.date | date: '%s' }}" data-df="MMM">{{ post.date | date: "%b" }}</span>
+          <a href="{{ post.url | relative_url }}" class="h5 ml-2 text-white font-weight-bold">{{ post.title }}</a>
+        </div>
 
         {% if post.description %}
-          <span class="post-description">{{ post.description }}</span>
+          <span class="post-description d-block mt-2 mb-2">{{ post.description }}</span>
         {% endif %}
 
-        <div class="post-meta-wrapper">
+        <div class="post-meta-wrapper mt-3">
           {% if post.categories.size > 0 %}
             <span class="meta-chip category">
               <i class="fas fa-folder-open"></i> {{ post.categories | first }}
@@ -42,3 +44,9 @@ layout: page
     {% if forloop.last %}</ul>{% endif %}
   {% endfor %}
 </div>
+
+<style>
+  .hover-shift { transition: transform 0.3s ease; }
+  .hover-shift:hover { transform: translateX(8px); border-color: var(--accent-color) !important; }
+  .text-accent { color: var(--accent-color); }
+</style>
