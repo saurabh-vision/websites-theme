@@ -42,6 +42,7 @@ icon: fas fa-tools
   {% endfor %}
 </div>
 
+<div id="tool-filter-engine">
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const filterBtns = document.querySelectorAll('.filter-btn');
@@ -51,9 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-
       const category = btn.getAttribute('data-category');
-
       toolCards.forEach(card => {
         if (category === 'all' || card.getAttribute('data-category') === category) {
           card.classList.remove('hidden');
@@ -65,6 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
+</div>
 
 <hr class="my-5">
 
